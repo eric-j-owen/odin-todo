@@ -8,6 +8,7 @@ module.exports = {
     },
     devServer: {
         static: "./dist",
+        open: false,
     },
-    mode: "development"
+    mode: "development",
 };
