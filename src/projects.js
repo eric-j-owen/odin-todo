@@ -10,5 +10,10 @@ export default function createProject(title, desc) {
         addTodo(todo) {
             this.todos.push(todo);
         },
+        removeTodo(id) {
+            const removedIndex = this.todos.findIndex((todo) => todo.id === id);
+            console.log(`removing ${this.todos[removedIndex].title}`);
+            this.todos.splice(removedIndex, 1);
+        },
     };
 }
