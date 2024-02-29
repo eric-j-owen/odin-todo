@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { updateTitleUtil, updateDescUtil } from './utility';
 
 export default function createProject(title, desc) {
   return {
@@ -12,14 +13,14 @@ export default function createProject(title, desc) {
     },
     removeTodo(id) {
       const removedIndex = this.todos.findIndex((todo) => todo.id === id);
-      console.log(`removing ${this.todos[removedIndex].title}`);
       this.todos.splice(removedIndex, 1);
     },
     updateTitle(newTitle) {
-      this.title = newTitle;
+      return updateTitleUtil(this, newTitle);
     },
+
     updateDesc(newDesc) {
-      this.desc = newDesc;
+      return updateDescUtil(this, newDesc);
     },
   };
 }

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { updateTitleUtil, updateDescUtil } from './utility';
 
 export default function createTodo(title, desc, dueDate, priority) {
   return {
@@ -10,10 +11,10 @@ export default function createTodo(title, desc, dueDate, priority) {
     isComplete: false,
     createdDate: new Date(),
     updateTitle(newTitle) {
-      this.title = newTitle;
+      return updateTitleUtil(this, newTitle);
     },
     updateDesc(newDesc) {
-      this.desc = newDesc;
+      return updateDescUtil(this, newDesc);
     },
     updateDueDate(newDate) {
       this.dueDate = newDate;
