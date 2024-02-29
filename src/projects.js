@@ -15,5 +15,11 @@ export default function createProject(title, desc) {
       console.log(`removing ${this.todos[removedIndex].title}`);
       this.todos.splice(removedIndex, 1);
     },
+    updateTitle(newTitle) {
+      this.title = newTitle;
+    },
+    updateDesc(newDesc) {
+      this.desc = newDesc;
+    },
   };
 }
