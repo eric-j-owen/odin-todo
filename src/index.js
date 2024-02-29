@@ -23,8 +23,6 @@ const testTodo3 = createTodo(
 testProject.addTodo(testTodo);
 testProject.addTodo(testTodo2);
 testProject.addTodo(testTodo3);
-testProject.removeTodo(testTodo2.id);
-console.log(testProject);
-testProject.updateTitle('hello this is a new title');
-testProject.updateDesc('hola this is a new desc');
+
+testTodo3.updateDueDate(new Date(2030, 0, 1));
 console.log(testProject);

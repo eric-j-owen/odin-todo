@@ -9,5 +9,20 @@ export default function createTodo(title, desc, dueDate, priority) {
     priority,
     isComplete: false,
     createdDate: new Date(),
+    updateTitle(newTitle) {
+      this.title = newTitle;
+    },
+    updateDesc(newDesc) {
+      this.desc = newDesc;
+    },
+    updateDueDate(newDate) {
+      this.dueDate = newDate;
+    },
+    updatePriority(newPriority) {
+      this.priority = newPriority;
+    },
+    updateIsComplete() {
+      this.isComplete = !this.isComplete;
+    },
   };
 }
