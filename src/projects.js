@@ -1,6 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-import { findObjIndexUtil, updateTitleUtil, updateDescUtil } from './utility';
-import { projects } from './storage';
 
 export default function createProject(title, desc) {
   return {
@@ -10,17 +8,17 @@ export default function createProject(title, desc) {
     todos: [],
     createdDate: new Date(),
     updateTitle(newTitle) {
-      return updateTitleUtil(this, newTitle, projects);
+      this.title = newTitle;
     },
 
     updateDesc(newDesc) {
-      return updateDescUtil(this, newDesc);
+      this.desc = newDesc;
     },
     addTodo(todo) {
       this.todos.push(todo);
     },
     removeTodo(obj) {
-      const removedIndex = findObjIndexUtil(obj, this.todos);
+      const removedIndex = this.todos.findIndex((item) => item.id === obj.id);
       this.todos.splice(removedIndex, 1);
     },
   };
