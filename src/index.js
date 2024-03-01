@@ -1,6 +1,7 @@
-import createProject, { projects } from './projects';
+import createProject from './projects';
 import createTodo from './todos';
 import render from './render';
+import { getAllProjects } from './storage';
 
 let testProject = createProject('project1', 'this is a test project');
 testProject.addProjectToStorage();
@@ -11,7 +12,7 @@ const testTodo = createTodo(
   new Date(2024, 2, 1),
   1,
 );
-const testTodo2 = createTodo(
+let testTodo2 = createTodo(
   'todo 2',
   'second todo i gotta do',
   new Date(2024, 4, 15),
@@ -30,5 +31,5 @@ testProject.removeTodo(testTodo2);
 
 testProject = testProject.updateTitle('new title');
 
-// testProject.todos[0] = testTodo.updateTitle('newer title');
-render(projects);
+testTodo2 = testTodo2.updateTitle('newer title');
+render(getAllProjects());

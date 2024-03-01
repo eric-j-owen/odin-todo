@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { findObjIndexUtil, updateTitleUtil, updateDescUtil } from './utility';
-
-export const projects = [];
+import { projects } from './storage';
 
 export default function createProject(title, desc) {
   return {
@@ -11,7 +10,7 @@ export default function createProject(title, desc) {
     todos: [],
     createdDate: new Date(),
     updateTitle(newTitle) {
-      return updateTitleUtil(this, projects, newTitle);
+      return updateTitleUtil(this, newTitle, projects);
     },
 
     updateDesc(newDesc) {
