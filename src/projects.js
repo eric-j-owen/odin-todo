@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-import { updateTitleUtil, updateDescUtil } from './utility';
+import { findObjIndexUtil, updateTitleUtil, updateDescUtil } from './utility';
+
+export const projects = [];
 
 export default function createProject(title, desc) {
   return {
@@ -8,19 +10,22 @@ export default function createProject(title, desc) {
     desc,
     todos: [],
     createdDate: new Date(),
-    addTodo(todo) {
-      this.todos.push(todo);
-    },
-    removeTodo(id) {
-      const removedIndex = this.todos.findIndex((todo) => todo.id === id);
-      this.todos.splice(removedIndex, 1);
-    },
     updateTitle(newTitle) {
-      return updateTitleUtil(this, newTitle);
+      return updateTitleUtil(this, projects, newTitle);
     },
 
     updateDesc(newDesc) {
       return updateDescUtil(this, newDesc);
+    },
+    addTodo(todo) {
+      this.todos.push(todo);
+    },
+    removeTodo(obj) {
+      const removedIndex = findObjIndexUtil(obj, this.todos);
+      this.todos.splice(removedIndex, 1);
+    },
+    addProjectToStorage() {
+      projects.push(this);
     },
   };
 }

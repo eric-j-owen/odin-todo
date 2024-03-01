@@ -1,8 +1,10 @@
-import createProject from './projects';
+import createProject, { projects } from './projects';
 import createTodo from './todos';
 import render from './render';
 
 let testProject = createProject('project1', 'this is a test project');
+testProject.addProjectToStorage();
+
 const testTodo = createTodo(
   'todo 1',
   'first todo i gotta do',
@@ -24,8 +26,9 @@ const testTodo3 = createTodo(
 testProject.addTodo(testTodo);
 testProject.addTodo(testTodo2);
 testProject.addTodo(testTodo3);
+testProject.removeTodo(testTodo2);
 
-testTodo3.updateDueDate(new Date(2030, 0, 1));
 testProject = testProject.updateTitle('new title');
-testProject.todos[0] = testTodo.updateTitle('newer title');
-render(testProject);
+
+// testProject.todos[0] = testTodo.updateTitle('newer title');
+render(projects);
