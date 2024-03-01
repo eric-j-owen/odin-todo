@@ -1,10 +1,10 @@
 import createProject from './projects';
 import createTodo from './todos';
 import render from './render';
-import { getAllProjects } from './storage';
+import { getAllProjects, addProjectToStorage } from './storage';
 
 let testProject = createProject('project1', 'this is a test project');
-testProject.addProjectToStorage();
+addProjectToStorage(testProject);
 
 const testTodo = createTodo(
   'todo 1',

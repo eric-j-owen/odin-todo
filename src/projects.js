@@ -23,8 +23,5 @@ export default function createProject(title, desc) {
       const removedIndex = findObjIndexUtil(obj, this.todos);
       this.todos.splice(removedIndex, 1);
     },
-    addProjectToStorage() {
-      projects.push(this);
-    },
   };
 }

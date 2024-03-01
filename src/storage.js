@@ -11,3 +11,7 @@ export function getProjectByIndex(index) {
 export function getProjectByTitle(title) {
   return projects.find((project) => project.title.includes(title));
 }
+
+export function addProjectToStorage(project) {
+  projects.push(project);
+}
