@@ -15,7 +15,11 @@ export default function createProject(title, desc) {
       this.desc = newDesc;
     },
     addTodo(todo) {
-      this.todos.push(todo);
+      const updatedTodoWithId = {
+        ...todo,
+        projectId: this.id,
+      };
+      this.todos.push(updatedTodoWithId);
     },
     removeTodo(obj) {
       const removedIndex = this.todos.findIndex((item) => item.id === obj.id);
