@@ -2,34 +2,30 @@ import { getAllProjects } from './storage';
 
 export default function render() {
   const projects = getAllProjects();
-  const projectsDiv = document.querySelector('.projects');
-  
+  const projectsList = document.querySelector('.proj-list');
+  const projTitle = document.querySelector('.proj-title');
+  const projDesc = document.querySelector('.proj-desc');
+  const todoList = document.querySelector('.todos-list');
+
   projects.forEach((proj) => {
-    const projectDivEl = document.createElement('div');
-    projectDivEl.classList.add('project');
-    const projectTitleEl = document.createElement('h4');
-    const projectDescEl = document.createElement('p');
-    const todosDiv = document.createElement('div');
+    const projectItem = document.createElement('li');
+    const projectButton = document.createElement('button');
+    projectButton.textContent = proj.title;
+    projectItem.appendChild(projectButton);
+    projectsList.appendChild(projectItem);
 
-    projectTitleEl.textContent = proj.title;
-    projectDescEl.textContent = proj.desc;
+    projectButton.addEventListener('click', () => {
+      projTitle.textContent = proj.title;
+      projDesc.textContent = proj.desc;
 
-    proj.todos.forEach((todo) => {
-      const todoDiv = document.createElement('div');
-      todoDiv.classList.add('todo')
-      const todoTitleEl = document.createElement('h5');
-      todoTitleEl.textContent = todo.title;
-      todoDiv.appendChild(todoTitleEl);
-
-      todosDiv.appendChild(todoDiv);
+      todoList.innerHTML = '';
+      proj.todos.forEach((todo) => {
+        const todoItem = document.createElement('li');
+        const todoTitleEl = document.createElement('h6');
+        todoTitleEl.textContent = todo.title;
+        todoItem.appendChild(todoTitleEl);
+        todoList.appendChild(todoItem);
+      });
     });
-
-    projectDivEl.appendChild(projectTitleEl);
-    projectDivEl.appendChild(projectDescEl);
-    projectDivEl.appendChild(todosDiv);
-
-    projectDivEl.append(document.createElement('hr'));
-    console.log(projectDivEl);
-    projectsDiv.appendChild(projectDivEl);
   });
 }

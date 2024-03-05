@@ -3,10 +3,14 @@ import createTodo from './todos';
 import render from './render';
 import { addProjectToStorage } from './storage';
 
+const miscProject = createProject('Misc', "This is for todo items that don't belong to a specific project.")
 const testProject1 = createProject('project1', 'this is a test project');
 const testProject2 = createProject('project2', 'this is ANOTHER test project');
+const testProject3 = createProject('project3', 'this is YET ANOTHER test project');
+addProjectToStorage(miscProject);
 addProjectToStorage(testProject1);
 addProjectToStorage(testProject2);
+addProjectToStorage(testProject3);
 
 const testTodo = createTodo(
   'todo 1',
