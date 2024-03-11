@@ -1,12 +1,12 @@
 import { getAllProjects } from './storage';
 
-export default function render() {
-  const projects = getAllProjects();
-  const projectsList = document.querySelector('.proj-list');
-  const projTitle = document.querySelector('.proj-title');
-  const projDesc = document.querySelector('.proj-desc');
-  const todoList = document.querySelector('.todos-list');
+const projects = getAllProjects();
+const projectsList = document.querySelector('.proj-list');
+const projTitle = document.querySelector('.proj-title');
+const projDesc = document.querySelector('.proj-desc');
+const todoList = document.querySelector('.todos-list');
 
+export function render() {
   projects.forEach((proj) => {
     const projectItem = document.createElement('li');
     const projectButton = document.createElement('button');
@@ -27,5 +27,17 @@ export default function render() {
         todoList.appendChild(todoItem);
       });
     });
+  });
+}
+
+export function updateTodos(project) {
+  todoList.innerHTML = '';
+
+  project.todos.forEach((todo) => {
+    const todoItemEl = document.createElement('li');
+    const todoTitleEl = document.createElement('h6');
+    todoTitleEl.textContent = todo.title;
+    todoItemEl.appendChild(todoTitleEl);
+    todoList.appendChild(todoItemEl);
   });
 }

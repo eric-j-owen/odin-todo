@@ -7,8 +7,36 @@
     <title>Document</title>
     <script src="main.js" defer></script>
 </head>
-
 <body>
+    <div class="container">
+        <h1>Main title</h1>
+        <div class="projects">
+            <h2>Projects</h2>
+            <ul class="proj-list"></ul>
+        </div>
+        <div class="content">
+            <div class="add-todo">
+                <form class="add-todo form">
+                    <label> 
+                        <input type="text" placeholder="Enter a todo item" class="add-todo title">
+                    </label>
+                    <label>
+                        <textarea cols="35" rows="1" placeholder="Enter a description" class="add-todo desc"></textarea>
+                    </label>
+                    <button>Add</button>
+                </form>
+            </div>
+        
+            <div class="project">
+                <h4 class="proj-title">Project Title:</h4>
+                <p class="proj-desc"></p>
+                <div class="todos">
+                    <h5>Todos</h5>
+                    <ul class="todos-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
