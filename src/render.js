@@ -6,7 +6,21 @@ const projTitle = document.querySelector('.proj-title');
 const projDesc = document.querySelector('.proj-desc');
 const todoList = document.querySelector('.todos-list');
 
+export function updateTodos(project) {
+  todoList.innerHTML = '';
+
+  project.todos.forEach((todo) => {
+    const todoItemEl = document.createElement('li');
+    const todoTitleEl = document.createElement('h6');
+    todoTitleEl.textContent = todo.title;
+    todoItemEl.appendChild(todoTitleEl);
+    todoList.appendChild(todoItemEl);
+  });
+}
+
 export function render() {
+  projectsList.innerHTML = '';
+  
   projects.forEach((proj) => {
     const projectItem = document.createElement('li');
     const projectButton = document.createElement('button');
@@ -17,27 +31,7 @@ export function render() {
     projectButton.addEventListener('click', () => {
       projTitle.textContent = proj.title;
       projDesc.textContent = proj.desc;
-
-      todoList.innerHTML = '';
-      proj.todos.forEach((todo) => {
-        const todoItem = document.createElement('li');
-        const todoTitleEl = document.createElement('h6');
-        todoTitleEl.textContent = todo.title;
-        todoItem.appendChild(todoTitleEl);
-        todoList.appendChild(todoItem);
-      });
+      updateTodos(proj);
     });
-  });
-}
-
-export function updateTodos(project) {
-  todoList.innerHTML = '';
-
-  project.todos.forEach((todo) => {
-    const todoItemEl = document.createElement('li');
-    const todoTitleEl = document.createElement('h6');
-    todoTitleEl.textContent = todo.title;
-    todoItemEl.appendChild(todoTitleEl);
-    todoList.appendChild(todoItemEl);
   });
 }
