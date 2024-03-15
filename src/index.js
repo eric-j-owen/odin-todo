@@ -3,19 +3,19 @@ import createTodo from './todos';
 import { render, updateTodos } from './render';
 import { addProjectToStorage, getProjectByTitle } from './storage';
 
-const miscProject = createProject('Misc', "This is for todo items that don't belong to a specific project.");
+const miscProject = createProject('Action Items', "This is for tasks that don't belong to a specific project.");
 addProjectToStorage(miscProject);
 
 const addProjectForm = document.querySelector('.add-project.form');
 const addProjectTitle = document.querySelector('.add-project.title');
 const addProjectDesc = document.querySelector('.add-project.desc');
-
 addProjectForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const proj = createProject(addProjectTitle.value, addProjectDesc.value);
   addProjectToStorage(proj);
   render();
 });
+
 const addTodoForm = document.querySelector('.add-todo.form');
 const addTodoTitle = addTodoForm.querySelector('.add-todo.title');
 const addTodoDesc = addTodoForm.querySelector('.add-todo.desc');

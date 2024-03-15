@@ -8,7 +8,6 @@ const todoList = document.querySelector('.todos-list');
 
 export function updateTodos(project) {
   todoList.innerHTML = '';
-
   project.todos.forEach((todo) => {
     const todoItemEl = document.createElement('li');
     const todoTitleEl = document.createElement('h6');
@@ -20,7 +19,9 @@ export function updateTodos(project) {
 
 export function render() {
   projectsList.innerHTML = '';
-  
+  projTitle.textContent = projects[0].title;
+  projDesc.textContent = projects[0].desc;
+  updateTodos(projects[0]);
   projects.forEach((proj) => {
     const projectItem = document.createElement('li');
     const projectButton = document.createElement('button');
