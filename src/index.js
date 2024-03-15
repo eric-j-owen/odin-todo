@@ -3,7 +3,7 @@ import createTodo from './todos';
 import { render, updateTodos } from './render';
 import { addProjectToStorage, getProjectByTitle } from './storage';
 
-const miscProject = createProject('Action Items', "This is for tasks that don't belong to a specific project.");
+const miscProject = createProject('Miscellaneous Tasks', "This is for tasks that don't belong to a specific project.");
 addProjectToStorage(miscProject);
 
 const addProjectForm = document.querySelector('.add-project.form');

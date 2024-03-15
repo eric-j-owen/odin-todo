@@ -12,18 +12,29 @@
         <h1>Main title</h1>
         <div class="projects">
             <h2>Projects</h2>
+            <form class="add-project form">
+                <label>
+                    <input type="text" placeholder="Enter project title" class="add-project title">
+                </label>
+                <label>
+                    <textarea cols="35" rows="1" placeholder="Enter a brief description" class="add-project desc"></textarea>
+                </label>
+                <button>Add Project</button>
+            </form>
             <ul class="proj-list"></ul>
         </div>
         <div class="content">
+            <div class="add-project">
+            </div>
             <div class="add-todo">
                 <form class="add-todo form">
                     <label> 
                         <input type="text" placeholder="Enter a todo item" class="add-todo title">
                     </label>
                     <label>
-                        <textarea cols="35" rows="1" placeholder="Enter a description" class="add-todo desc"></textarea>
+                        <textarea cols="35" rows="1" placeholder="Enter a brief description" class="add-todo desc"></textarea>
                     </label>
-                    <button>Add</button>
+                    <button>Add Todo</button>
                 </form>
             </div>
         
