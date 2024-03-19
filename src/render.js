@@ -42,15 +42,15 @@ export function render() {
       updateTodos(proj);
     });
   });
-
-  todoList.addEventListener('click', (event) => {
-    if (event.target.classList.contains('todo-delete')) {
-      const todoItem = event.target.closest('li');
-      const todoTitleText = todoItem.querySelector('h6').textContent;
-      const proj = getProjectByTitle(projTitle.textContent);
-      const todoObj = getTodoByTitle(todoTitleText, proj.id);
-      proj.removeTodo(todoObj);
-      updateTodos(proj);
-    }
-  });
 }
+
+todoList.addEventListener('click', (event) => {
+  if (event.target.classList.contains('todo-delete')) {
+    const todoItem = event.target.closest('li');
+    const todoTitleText = todoItem.querySelector('h6').textContent;
+    const proj = getProjectByTitle(projTitle.textContent);
+    const todoObj = getTodoByTitle(todoTitleText, proj.id);
+    proj.removeTodo(todoObj);
+    updateTodos(proj);
+  }
+});
