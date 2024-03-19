@@ -22,8 +22,10 @@ export default function createProject(title, desc) {
       this.todos.push(updatedTodoWithId);
     },
     removeTodo(obj) {
-      const removedIndex = this.todos.findIndex((item) => item.id === obj.id);
-      this.todos.splice(removedIndex, 1);
+      if (obj) {
+        const removedIndex = this.todos.findIndex((item) => item.id === obj.id);
+        this.todos.splice(removedIndex, 1);
+      }
     },
   };
 }
